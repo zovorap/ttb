@@ -1,0 +1,37 @@
+<div class="dice">
+    <div class="dice-value">
+        {{ value }}
+
+        <div [ngSwitch]="value">
+            <span *ngSwitchCase="'tick'">(Начало слова)</span>
+            <span *ngSwitchCase="'tock'">(Конец слова)</span>
+            <span *ngSwitchDefault>(В любом месте)</span>
+        </div>
+    </div>
+    
+    <div
+        class="dice-action"
+        [ngSwitch]="hasCards"
+    >
+        <button
+            class="btn btn-success"
+            *ngSwitchCase="true"
+            routerLink="/card"
+            routerLinkActive="active"
+        >Поехали!</button>
+
+        <span *ngSwitchDefault>
+            Вы использовали все карточки для этого значения игровой кости.
+            Начните игру заново или перебросьте кость.
+
+            <button
+                routerLink="/"
+                routerLinkActive="active"
+            >Начать игру заново</button>
+
+            <button
+                (click)="rollTheDice()"
+            >Перебросить кость</button>
+        </span>
+    </div>
+</div>

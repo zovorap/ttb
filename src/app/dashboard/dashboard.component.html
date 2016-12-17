@@ -1,0 +1,21 @@
+<div class="dashboard">
+    <h1>Tick...Tock...Boom</h1>
+    
+    <h2>Выберите уровень</h2>
+
+    <ul>
+        <li *ngFor="let level of levels">
+            <button
+                class="btn"
+                [ngClass]="'btn-' + level.cssClass"
+                (click)="newGame(level.id)"                
+            >
+                <span
+                    *ngFor="let star of level.stars"
+                    class="glyphicon glyphicon-star"
+                    aria-hidden="true"
+                ></span>
+            </button>
+        </li>
+    </ul>
+</div>

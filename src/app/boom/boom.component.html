@@ -1,0 +1,30 @@
+<div class="boom">
+     <img
+        *ngIf="showExplosion"
+        class="boom-explosion"
+        src="assets/explosion.gif"
+    >
+    
+    <button
+        class="btn btn-lg btn-success btn-block"
+        routerLink="/dice"
+        routerLinkActive="active"
+    >Новый раунд</button>
+
+    <div
+        *ngIf="hasWords"
+    >
+        <button
+            *ngIf="!words"
+            class="btn btn-lg btn-info btn-block"
+            (click)="showWords()"
+        >Показать слова</button>
+
+        <ul class="boom-word-list">
+            <li *ngFor="let word of words"
+                class="boom-word-list-item"
+                [innerHTML]="word"
+            ></li>
+        </ul>
+    </div>
+</div>
